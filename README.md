@@ -111,6 +111,75 @@ bash linux-soc-defense-lab/ │ ├── screenshots/ │   ├── 01-ssh-br
 
 ---
 
+---
+
+## 🔥 Attack Evidence | Saldırı Kanıtı
+
+bash Failed password for root from 192.168.1.100 port 22 ssh2 Failed password for admin from 192.168.1.100 port 22 ssh2 Failed password for invalid user test from 192.168.1.100 port 22 ssh2 
+
+---
+
+## 🔒 Fail2Ban Response | Fail2Ban Tepkisi
+
+bash Status for the jail: sshd |- Filter |  |- Currently failed: 5 |  |- Total failed: 25 |  `- Journal matches: _SYSTEMD_UNIT=sshd.service `- Actions    |- Currently banned: 1    |- Total banned: 1    `- Banned IP list: 192.168.1.100 
+
+---
+
+## ⚡ Attack Flow | Saldırı Akışı
+
+Attacker IP → SSH brute force → Log detection → Fail2Ban trigger → IP banned
+
+---
+
+## 🧠 Detection Logic | Tespit Mantığı
+
+### 🇬🇧 English
+- Multiple failed SSH login attempts detected via /var/log/auth.log
+- Repeated authentication failures from a single IP address
+- Threshold exceeded based on Fail2Ban configuration
+- Automatic banning mechanism triggered
+
+### 🇹🇷 Türkçe
+- /var/log/auth.log üzerinden çoklu başarısız SSH giriş denemeleri tespit edildi
+- Tek bir IP adresinden tekrar eden başarısız girişler gözlemlendi
+- Fail2Ban yapılandırmasına göre eşik değer aşıldı
+- Otomatik engelleme mekanizması tetiklendi
+
+---
+
+## 🛡️ Security Outcome | Güvenlik Sonucu
+
+### 🇬🇧 English
+- Brute force attack successfully identified
+- Malicious IP automatically blocked
+- Unauthorized access attempts prevented
+- System integrity maintained
+
+### 🇹🇷 Türkçe
+- Brute force saldırısı başarıyla tespit edildi
+- Zararlı IP otomatik olarak engellendi
+- Yetkisiz erişim girişimleri önlendi
+- Sistem bütünlüğü korundu
+
+---
+
+## 🎯 Project Value | Proje Değeri
+
+### 🇬🇧 English
+This project demonstrates hands-on experience in:
+- Real-world attack detection
+- Log analysis and threat identification
+- Automated defense mechanisms
+- SOC-oriented security monitoring approach
+
+### 🇹🇷 Türkçe
+Bu proje aşağıdaki konularda pratik deneyim sunmaktadır:
+- Gerçek dünya saldırı tespiti
+- Log analizi ve tehdit belirleme
+- Otomatik savunma mekanizmaları
+- SOC odaklı güvenlik izleme yaklaşımı
+
+
 ## 🚀 Amaç | Purpose
 
 ### 🇹🇷
